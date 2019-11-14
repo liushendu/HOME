@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qf.dao.UserMapper">
+    <resultMap type="com.kyle.domain.User" id="userMap">
+        <id column="uid" property="uid" />
+        <result column="uname" property="name" />
+        <result column="upassword" property="password" />
+        <result column="ugender" property="ugender" />
+        <result column="ustatus" property="ustatus" />
+        <result column="uphone" property="uphone" />
+        <result column="uemail" property="uemail" />
+        <result column="uvip" property="uvip" />
+        <result column="upic" property="upic" />
+        <result column="uface" property="uface" />
+        <result column="uticket" property="uticket" />
+
+    </resultMap>
+
+    <sql id="tbusers_columns">
+      uname,upassword,ustatus,ugender,uphone,uvip,uemail,upic,uface,uticket
+    </sql>
+    <!--根据用户名查询对象  -->
+    <select id="findByUserName"  resultMap="userMap">
+        SELECT
+        <include refid="tbusers_columns"></include>
+        FROM
+        users US
+        WHERE
+        US.uname = #{username}
+    </select>
+
+    <insert id="insert" parameterType="com.kyle.domain.User">
+
+        INSERT into users ( uname,upassword,ustatus,ugender,uphone,uvip,uemail,upic,uface,uticket)VALUES (#{name},#{password},#{age},#{sex},#{uaddress},#{tel},#{email})
+    </insert>
+</mapper>

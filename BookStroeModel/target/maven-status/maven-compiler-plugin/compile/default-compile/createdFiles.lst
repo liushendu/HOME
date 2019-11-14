@@ -1,0 +1,8 @@
+com\kyle\domain\Author.class
+com\kyle\domain\Catalog.class
+com\kyle\domain\Book.class
+com\kyle\domain\BookStore.class
+com\kyle\domain\Code.class
+com\kyle\domain\User.class
+com\kyle\domain\Admin.class
+com\kyle\domain\UserList.class
